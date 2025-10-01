@@ -11,6 +11,18 @@ import {
   Target, Calendar, ArrowRight
 } from 'lucide-react'
 
+// Type definitions
+interface Channel {
+  name: string
+  leads: number
+  sqls: number
+  closed: number
+  cac: number
+  conversion: number
+  spend: number
+  traffic: number
+}
+
 // Sample data structure - replace with real API calls
 const companyData = {
   sidetool: {
@@ -336,7 +348,7 @@ export default function Dashboard() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {data.channels.map((channel) => (
+                {data.channels.map((channel: Channel) => (
                   <tr key={channel.name} className="hover:bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                       {channel.name}
@@ -434,7 +446,7 @@ export default function Dashboard() {
                 <YAxis fontSize={12} />
                 <Tooltip formatter={(value: any) => `$${(value / 1000).toFixed(1)}K`} />
                 <Bar dataKey="cac" fill="#ef4444">
-                  {data.channels.map((entry, index) => (
+                  {data.channels.map((entry: Channel, index: number) => (
                     <Cell key={`cell-${index}`} fill={entry.cac > 4000 ? '#ef4444' : entry.cac > 2500 ? '#f59e0b' : '#10b981'} />
                   ))}
                 </Bar>
