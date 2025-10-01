@@ -17,11 +17,14 @@ const companyData = {
     kpis: {
       revenue: { current: 160000, target: 210000, change: -15, label: 'MRR' },
       sqls: { current: 42, target: 60, change: -20, label: 'SQLs' },
-      pipeline: { current: 450000, target: 600000, change: 12, label: 'Pipeline' },
+      pipeline: { current: 450000, target: 600000, change: 12, label: 'Pipeline Value' },
+      deals: { current: 8, target: 15, change: -25, label: 'New Deals' },
+      dealSize: { current: 20000, target: 25000, change: -8, label: 'Avg Deal Size' },
       cac: { current: 4500, target: 3000, change: 35, label: 'CAC' },
       ltv: { current: 48000, target: 50000, change: -4, label: 'LTV' },
       ltvcac: { current: 10.6, target: 15, change: -25, label: 'LTV:CAC' },
-      payback: { current: 6.2, target: 4, change: 45, label: 'CAC Payback' },
+      payback: { current: 6.2, target: 4, change: 45, label: 'Payback' },
+      salesCycle: { current: 42, target: 30, change: 28, label: 'Sales Cycle' },
     },
     funnel: [
       { stage: 'Leads Generated', value: 523, conversion: null },
@@ -30,11 +33,12 @@ const companyData = {
       { stage: 'Deals Closed', value: 8, conversion: 16.7 },
     ],
     channels: [
-      { name: 'Organic Search', leads: 180, sqls: 28, closed: 3, cac: 2800, conversion: 1.7, spend: 8400 },
-      { name: 'Google Ads', leads: 120, sqls: 8, closed: 0, cac: 0, conversion: 0, spend: 12000 },
-      { name: 'Meta Ads', leads: 85, sqls: 12, closed: 2, cac: 6000, conversion: 2.4, spend: 12000 },
-      { name: 'LinkedIn', leads: 68, sqls: 8, closed: 1, cac: 8000, conversion: 1.5, spend: 8000 },
-      { name: 'Referrals', leads: 70, sqls: 14, closed: 2, cac: 1500, conversion: 2.9, spend: 3000 },
+      { name: 'SEO/Organic', leads: 180, sqls: 28, closed: 3, cac: 2800, conversion: 1.7, spend: 8400, traffic: 12500 },
+      { name: 'Google Ads', leads: 120, sqls: 8, closed: 0, cac: 0, conversion: 0, spend: 12000, traffic: 3200 },
+      { name: 'Meta Ads', leads: 85, sqls: 12, closed: 2, cac: 6000, conversion: 2.4, spend: 12000, traffic: 8900 },
+      { name: 'LinkedIn', leads: 68, sqls: 8, closed: 1, cac: 8000, conversion: 1.5, spend: 8000, traffic: 1200 },
+      { name: 'Referrals', leads: 70, sqls: 14, closed: 2, cac: 1500, conversion: 2.9, spend: 3000, traffic: 0 },
+      { name: 'Direct', leads: 45, sqls: 6, closed: 1, cac: 2000, conversion: 2.2, spend: 2000, traffic: 3500 },
     ],
     meetings: {
       scheduled: 42,
@@ -46,11 +50,14 @@ const companyData = {
     kpis: {
       revenue: { current: 37000, target: 150000, change: 45, label: 'MRR' },
       sqls: { current: 18, target: 40, change: 25, label: 'SQLs' },
-      pipeline: { current: 158000, target: 300000, change: 65, label: 'Pipeline' },
+      pipeline: { current: 158000, target: 300000, change: 65, label: 'Pipeline Value' },
+      deals: { current: 5, target: 9, change: 35, label: 'New Deals' },
+      dealSize: { current: 31600, target: 35000, change: 8, label: 'Avg Deal Size' },
       cac: { current: 3200, target: 2500, change: -8, label: 'CAC' },
       ltv: { current: 35000, target: 40000, change: 12, label: 'LTV' },
       ltvcac: { current: 10.9, target: 15, change: 18, label: 'LTV:CAC' },
-      payback: { current: 4.8, target: 3, change: -20, label: 'CAC Payback' },
+      payback: { current: 4.8, target: 3, change: -20, label: 'Payback' },
+      salesCycle: { current: 35, target: 25, change: 15, label: 'Sales Cycle' },
     },
     funnel: [
       { stage: 'Leads Generated', value: 215, conversion: null },
@@ -59,10 +66,11 @@ const companyData = {
       { stage: 'Deals Closed', value: 5, conversion: 17.9 },
     ],
     channels: [
-      { name: 'LinkedIn Ads', leads: 95, sqls: 14, closed: 3, cac: 2100, conversion: 3.2, spend: 6300 },
-      { name: 'Google Ads', leads: 60, sqls: 0, closed: 0, cac: 0, conversion: 0, spend: 5200 },
-      { name: 'Referrals', leads: 35, sqls: 8, closed: 2, cac: 1800, conversion: 5.7, spend: 3600 },
-      { name: 'Direct Outreach', leads: 25, sqls: 6, closed: 0, cac: 0, conversion: 0, spend: 2000 },
+      { name: 'LinkedIn Ads', leads: 95, sqls: 14, closed: 3, cac: 2100, conversion: 3.2, spend: 6300, traffic: 2100 },
+      { name: 'Google Ads', leads: 60, sqls: 0, closed: 0, cac: 0, conversion: 0, spend: 5200, traffic: 1800 },
+      { name: 'Referrals', leads: 35, sqls: 8, closed: 2, cac: 1800, conversion: 5.7, spend: 3600, traffic: 0 },
+      { name: 'Direct Outreach', leads: 25, sqls: 6, closed: 0, cac: 0, conversion: 0, spend: 2000, traffic: 0 },
+      { name: 'SEO/Organic', leads: 45, sqls: 5, closed: 1, cac: 1200, conversion: 2.2, spend: 1200, traffic: 4800 },
     ],
     meetings: {
       scheduled: 28,
@@ -87,22 +95,26 @@ export default function Dashboard() {
           <h3 className="text-xs font-medium text-gray-500 uppercase tracking-wider">{data.label}</h3>
         </div>
         <div className="text-2xl font-bold text-gray-900 mb-1">
-          {metric === 'revenue' || metric === 'pipeline' || metric === 'cac' || metric === 'ltv'
+          {metric === 'revenue' || metric === 'pipeline' || metric === 'cac' || metric === 'ltv' || metric === 'dealSize'
             ? `$${(data.current / 1000).toFixed(0)}K`
             : metric === 'ltvcac'
             ? `${data.current.toFixed(1)}:1`
             : metric === 'payback'
             ? `${data.current.toFixed(1)}mo`
+            : metric === 'salesCycle'
+            ? `${data.current}d`
             : data.current.toLocaleString()}
         </div>
         <div className="flex items-center justify-between">
           <span className="text-xs text-gray-500">
-            Target: {metric === 'revenue' || metric === 'pipeline' || metric === 'cac' || metric === 'ltv'
+            Target: {metric === 'revenue' || metric === 'pipeline' || metric === 'cac' || metric === 'ltv' || metric === 'dealSize'
               ? `$${(data.target / 1000).toFixed(0)}K`
               : metric === 'ltvcac'
               ? `${data.target}:1`
               : metric === 'payback'
               ? `${data.target}mo`
+              : metric === 'salesCycle'
+              ? `${data.target}d`
               : data.target}
           </span>
           <span className={`flex items-center text-xs font-medium ${isPositive ? 'text-green-600' : 'text-red-600'}`}>
@@ -195,14 +207,17 @@ export default function Dashboard() {
         {/* KPI Section */}
         <div className="mb-8">
           <h2 className="text-lg font-semibold mb-4 text-gray-900">Key Performance Indicators</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             <KPICard metric="revenue" data={data.kpis.revenue} />
+            <KPICard metric="deals" data={data.kpis.deals} />
+            <KPICard metric="dealSize" data={data.kpis.dealSize} />
             <KPICard metric="sqls" data={data.kpis.sqls} />
             <KPICard metric="pipeline" data={data.kpis.pipeline} />
             <KPICard metric="cac" data={data.kpis.cac} />
             <KPICard metric="ltv" data={data.kpis.ltv} />
             <KPICard metric="ltvcac" data={data.kpis.ltvcac} />
             <KPICard metric="payback" data={data.kpis.payback} />
+            <KPICard metric="salesCycle" data={data.kpis.salesCycle} />
           </div>
         </div>
 
@@ -298,6 +313,9 @@ export default function Dashboard() {
                     Channel
                   </th>
                   <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Traffic/Clicks
+                  </th>
+                  <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Leads
                   </th>
                   <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -322,6 +340,9 @@ export default function Dashboard() {
                   <tr key={channel.name} className="hover:bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                       {channel.name}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-center text-gray-600">
+                      {channel.traffic > 0 ? channel.traffic.toLocaleString() : '-'}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-center text-gray-600">
                       {channel.leads}
@@ -358,6 +379,9 @@ export default function Dashboard() {
               <tfoot className="bg-gray-50">
                 <tr>
                   <td className="px-6 py-3 text-sm font-bold text-gray-900">Total</td>
+                  <td className="px-6 py-3 text-sm font-bold text-center text-gray-900">
+                    {data.channels.reduce((sum, ch) => sum + ch.traffic, 0).toLocaleString()}
+                  </td>
                   <td className="px-6 py-3 text-sm font-bold text-center text-gray-900">
                     {data.channels.reduce((sum, ch) => sum + ch.leads, 0)}
                   </td>
