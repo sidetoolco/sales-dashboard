@@ -78,7 +78,7 @@ export default function Dashboard() {
   const [selectedCompany, setSelectedCompany] = useState<'all' | 'sidetool' | 'kleva'>('all')
   const [timeRange, setTimeRange] = useState('last30days')
 
-  const getKPIValue = (metric: string) => {
+  const getKPIValue = (metric: keyof typeof kpiData.sidetool) => {
     if (selectedCompany === 'all') {
       return {
         current: kpiData.sidetool[metric].current + kpiData.kleva[metric].current,
@@ -89,7 +89,14 @@ export default function Dashboard() {
     return selectedCompany === 'sidetool' ? kpiData.sidetool[metric] : kpiData.kleva[metric]
   }
 
-  const KPICard = ({ title, value, target, change, prefix = '', suffix = '' }) => {
+  const KPICard = ({ title, value, target, change, prefix = '', suffix = '' }: {
+    title: string
+    value: number
+    target: number
+    change: number
+    prefix?: string
+    suffix?: string
+  }) => {
     const isPositive = change >= 0
     const progressPercent = (value / target) * 100
 
