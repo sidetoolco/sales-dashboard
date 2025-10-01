@@ -27,9 +27,10 @@ interface Channel {
 const companyData = {
   sidetool: {
     kpis: {
-      revenue: { current: 160000, target: 210000, change: -15, label: 'MRR' },
+      revenue: { current: 160000, target: 210000, change: -15, label: 'Revenue' },
       sqls: { current: 42, target: 60, change: -20, label: 'SQLs' },
       pipeline: { current: 450000, target: 600000, change: 12, label: 'Pipeline Value' },
+      pipelineCount: { current: 48, target: 60, change: 8, label: 'Pipeline Count' },
       deals: { current: 8, target: 15, change: -25, label: 'New Deals' },
       dealSize: { current: 20000, target: 25000, change: -8, label: 'Avg Deal Size' },
       cac: { current: 4500, target: 3000, change: 35, label: 'CAC' },
@@ -60,9 +61,10 @@ const companyData = {
   },
   kleva: {
     kpis: {
-      revenue: { current: 37000, target: 150000, change: 45, label: 'MRR' },
+      revenue: { current: 37000, target: 150000, change: 45, label: 'Revenue' },
       sqls: { current: 18, target: 40, change: 25, label: 'SQLs' },
       pipeline: { current: 158000, target: 300000, change: 65, label: 'Pipeline Value' },
+      pipelineCount: { current: 28, target: 40, change: 12, label: 'Pipeline Count' },
       deals: { current: 5, target: 9, change: 35, label: 'New Deals' },
       dealSize: { current: 31600, target: 35000, change: 8, label: 'Avg Deal Size' },
       cac: { current: 3200, target: 2500, change: -8, label: 'CAC' },
@@ -94,6 +96,7 @@ const companyData = {
 
 export default function Dashboard() {
   const [selectedCompany, setSelectedCompany] = useState<'sidetool' | 'kleva'>('sidetool')
+  const [timePeriod, setTimePeriod] = useState<'weekly' | 'monthly' | 'quarterly'>('monthly')
 
   const data = companyData[selectedCompany]
 
@@ -208,6 +211,40 @@ export default function Dashboard() {
                   Kleva
                 </button>
               </div>
+
+              {/* Time Period Selector */}
+              <div className="flex bg-gray-100 rounded-lg p-1">
+                <button
+                  onClick={() => setTimePeriod('weekly')}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    timePeriod === 'weekly'
+                      ? 'bg-white text-blue-600 shadow-sm'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
+                >
+                  Weekly
+                </button>
+                <button
+                  onClick={() => setTimePeriod('monthly')}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    timePeriod === 'monthly'
+                      ? 'bg-white text-blue-600 shadow-sm'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
+                >
+                  Monthly
+                </button>
+                <button
+                  onClick={() => setTimePeriod('quarterly')}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    timePeriod === 'quarterly'
+                      ? 'bg-white text-blue-600 shadow-sm'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
+                >
+                  Quarterly
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -225,6 +262,7 @@ export default function Dashboard() {
             <KPICard metric="dealSize" data={data.kpis.dealSize} />
             <KPICard metric="sqls" data={data.kpis.sqls} />
             <KPICard metric="pipeline" data={data.kpis.pipeline} />
+            <KPICard metric="pipelineCount" data={data.kpis.pipelineCount} />
             <KPICard metric="cac" data={data.kpis.cac} />
             <KPICard metric="ltv" data={data.kpis.ltv} />
             <KPICard metric="ltvcac" data={data.kpis.ltvcac} />
